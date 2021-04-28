@@ -1,13 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <link rel="icon" href="favicon.svg">
+  <link rel=”mask-icon” href="mask-icon.svg" color="#000000">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css"
     integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" crossorigin="anonymous">
+  <link rel="stylesheet" href="/static/css/style.css">
 
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/what-input@5.2.10/dist/what-input.min.js" defer></script>
@@ -19,9 +25,15 @@
 </head>
 
 <body>
-  <div class="top-bar">
+  <div class="title-bar" data-responsive-toggle="responsive-menu" data-hide-for="medium">
+    <button class="menu-icon" type="button" data-toggle="responsive-menu"></button>
+    <div class="title-bar-title">Menu</div>
+  </div>
+  
+  <div class="top-bar" id="responsive-menu">
     <div class="top-bar-left">
       <ul class="dropdown menu" data-dropdown-menu>
+        <li class="menu icon"><a href="/"><img class="logo" src="logo.svg" alt="Logo"></a></li>
         <li class="menu-text">This is: Aline</li>
       </ul>
     </div>
