@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="icon" href="/favicon.svg">
+  <link rel=”mask-icon” href="/mask-icon.svg" color="#000000">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css"
+    integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.7.2/build/styles/default.min.css">
+  <link rel="stylesheet" href="/static/css/style.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/what-input@5.2.10/dist/what-input.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/js/foundation.min.js"
+    integrity="sha256-pRF3zifJRA9jXGv++b06qwtSqX1byFQOLjqa2PTEb2o=" crossorigin="anonymous" defer></script>
+  <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.7.2/build/highlight.min.js" defer></script>
+  <script src="/static/js/script.js" defer></script>
+  <script src="/static/js/code.js" defer></script>
+
+  <title>Hello, World!</title>
+</head>
+
+<body>
+  <div class="title-bar" data-responsive-toggle="responsive-menu" data-hide-for="medium">
+    <button class="menu-icon" type="button" data-toggle="responsive-menu"></button>
+    <div class="title-bar-title">Menu</div>
+  </div>
+
+  <div class="top-bar" id="responsive-menu">
+    <div class="top-bar-left">
+      <ul class="dropdown menu" data-dropdown-menu>
+        <!-- <li class="menu icon"><a href="/"><img class="logo" src="/logo.svg" alt="Logo"></a></li> -->
+        <li class="menu-text"><a href="/">This is: Aline</a></li>
+        <li class="has-submenu">
+          <a href="/post/destaques.html">Destaques</a>
+          <ul class="submenu menu vertical" data-submenu>
+            <li><a href="/post/hello-world.html">Hello, World!</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="grid-container">
+    <h1>Hello, World!</h1>
+
+    <p>
+      Como uma das propostas deste espaço é falar sobre linguagens de programação,
+      tive a ideia de iniciar com o clássico <code>Hello, World!</code>.
+      A ideia é poder discutir vários assuntos diferentes, então nada mais adequado
+      que dizer <em>Hello, World!</em> em 10 linguagens diferentes.
+    </p>
+
+    <p>Vamos lá?</p>
+
+    <h2>C</h2>
+    <pre>
+      <code class="c">
+        #include &lt;stdio.h&gt;
+
+        char* greet(char* name) {
+          return "Hello, " + name + "!\n";
+        }
+
+        int main() {
+          char* message = greet("World");
+          printf(message);
+          return 0;
+        }
+      </code>
+    </pre>
+
+    <h2>C++</h2>
+    <pre>
+      <code class="cpp">
+        #include &lt;iostream&gt;
+        #include &lt;string&gt;
+
+        std::string greet(std::string name) {
+          return "Hello, " + name + "!";
+        }
+
+        int main() {
+          std::string message(greet("World"));
+          std::cout << message << std::endl;
+          return 0;
+        }
+      </code>
+    </pre>
+
+    <h2>Python</h2>
+    <pre>
+      <code class="python">
+        def greet(name: str) -> str:
+          return f"Hello, ${name}!"
+
+        message = greet("World")
+        print(message)
+      </code>
+    </pre>
+
+    <h2>Ruby</h2>
+    <pre>
+      <code>
+        def greet(name)
+          "Hello, #{name}!"
+        end
+
+        message = greet("World")
+        puts(message)
+      </code>
+    </pre>
+
+    <h2>Julia</h2>
+    <pre>
+      <code class="julia">
+        function greet(name::String)
+          return "Hello, " * name * "!"
+        end
+
+        message = greet("World")
+        println(message)
+      </code>
+    </pre>
+
+    <h2>Scala</h2>
+    <pre>
+      <code class="scala">
+        object Hello {
+          def greet(name: String): String = {
+            s"Hello, $name!"
+          }
+        
+          def main(args: Array[String]): Unit = {
+            val message: String = greet("World")
+            println(message)
+          }
+        }
+      </code>
+    </pre>
+
+    <h2>Java</h2>
+    <pre>
+      <code class="java">
+        class Hello {
+
+          private static String greet(String name) {
+            return "Hello, " + name + "!";
+          }
+        
+          public static void main(String[] args) {
+            String message = greet("World");
+            System.out.println(message);
+          }
+        }
+      </code>
+    </pre>
+
+    <h2>PHP</h2>
+    <pre>
+      <code class="php">
+        &lt;?php
+
+        function greet(string $name)
+        {
+          return "Hello, $name!";
+        }
+
+        $message = greet("World");
+        echo $message . "\n";
+      </code>
+    </pre>
+
+    <h2>Haskell</h2>
+    <pre>
+      <code class="haskell">
+        module Main where
+
+        greet :: String -> String
+        greet name = "Hello, " ++ name ++ "!"
+
+        main :: IO ()
+        main = putStrLn $ greet "World"
+      </code>
+    </pre>
+
+    <h2>Javascript</h2>
+    <pre>
+      <code class="javascript">
+        function greet(name) {
+          return `Hello, ${name}!`
+        }
+
+        const message = greet("World")
+        console.log(message)
+      </code>
+    </pre>
+
+  </div>
+</body>
+
+</html>
