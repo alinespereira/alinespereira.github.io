@@ -64,14 +64,22 @@
     <pre>
       <code class="c">
         #include &lt;stdio.h&gt;
-
-        char* greet(char* name) {
-          return "Hello, " + name + "!\n";
+        #include &lt;stdlib.h&gt;
+        #include &lt;string.h&gt;
+        
+        char *greet(char *name)
+        {
+          char *message = (char *)malloc(strlen("Hello") + strlen(name) + 2);
+          strcat(message, "Hello, ");
+          strcat(message, name);
+          strcat(message, "\n");
+          return message;
         }
-
-        int main() {
-          char* message = greet("World");
-          printf(message);
+        
+        int main()
+        {
+          char *message = greet("World");
+          printf("%s", message);
           return 0;
         }
       </code>
