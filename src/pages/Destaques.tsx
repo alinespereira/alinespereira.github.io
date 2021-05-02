@@ -1,9 +1,17 @@
 import { Component } from 'react'
+import { Link } from 'react-router-dom'
+import * as Foundation from 'react-foundation'
 
 class Destaques extends Component {
   render() {
     return (
-      <h1>Destaques</h1>
+      <Foundation.Grid>
+        <Foundation.Grid vertical>
+          <h1>Destaques</h1>
+          <Link to="/post/hello-world">Hello, World!</Link>
+        </Foundation.Grid>
+      </Foundation.Grid>
+
     )
   }
 }
