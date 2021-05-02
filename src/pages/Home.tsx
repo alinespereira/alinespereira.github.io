@@ -10,6 +10,8 @@ class Home extends Component {
           <h1>Welcome Home!</h1>
 
           <p>É novo por aqui? Então venha conferir meu <Link to='/post/hello-world'>primeiro post!</Link></p>
+
+          <p>Divirta-se!</p>
         </Foundation.Grid>
       </Foundation.Grid>
     )
