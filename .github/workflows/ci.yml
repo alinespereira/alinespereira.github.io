@@ -21,7 +21,7 @@ jobs:
           node-version: 15.x
 
       - name: Install NPM packages
-        run: npm install --only=producion
+        run: npm install --only=prod
 
       - name: Build project
         run: npm run build
