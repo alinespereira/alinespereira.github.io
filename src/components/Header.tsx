@@ -24,6 +24,7 @@ class Header extends Component {
                 <Link to="/destaques">Destaques</Link>
                 <Foundation.Menu isVertical isNested>
                   <Foundation.MenuItem>
+                    <Link to="/post/jogo-da-vida">Jogo da vida</Link>
                     <Link to="/post/hello-world">Hello, World!</Link>
                   </Foundation.MenuItem>
                 </Foundation.Menu>

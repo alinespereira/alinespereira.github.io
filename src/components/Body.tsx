@@ -8,6 +8,7 @@ import *  as Foundation from 'react-foundation'
 import Home from '../pages/Home'
 import Destaques from '../pages/Destaques'
 import HelloWorld from '../pages/post/HelloWorld'
+import GameOfLife from '../pages/post/GameOfLife'
 
 class Body extends Component {
   render() {
@@ -19,6 +20,9 @@ class Body extends Component {
           </Route>
           <Route path="/post/hello-world">
             <HelloWorld />
+          </Route>
+          <Route path="/post/jogo-da-vida">
+            <GameOfLife />
           </Route>
           <Route path="/destaques">
             <Destaques />
