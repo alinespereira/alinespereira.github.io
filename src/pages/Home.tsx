@@ -11,7 +11,7 @@ class Home extends Component {
 
           <p>É novo por aqui? Então venha conferir meu <Link to='/post/hello-world'>primeiro post!</Link></p>
 
-          <p>Divirta-se!</p>
+          <p>Divirta-se! Vemo-nos em breve :)</p>
         </Foundation.Grid>
       </Foundation.Grid>
     )
