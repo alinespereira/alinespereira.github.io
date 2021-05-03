@@ -1,11 +1,11 @@
-import { Component } from 'react'
-import CodeBlock from '../../components/CodeBlock'
+import { Component, Suspense, lazy } from 'react'
 import 'highlight.js/styles/solarized-dark.css'
-
 
 // import fs from 'fs'
 
 import * as Foundation from 'react-foundation'
+
+const CodeBlock = lazy(() => import('../../components/CodeBlock'))
 
 class HelloWorld extends Component {
   // componentDidMount() {
@@ -27,35 +27,37 @@ class HelloWorld extends Component {
 
           <p>Vamos lá?</p>
 
-          <h2>C</h2>
-          <CodeBlock path="/resources/code/HelloWorld.c" language="c" />
+          <Suspense fallback={<div>Loading...</div>}>
+            <h2>C</h2>
+            <CodeBlock path="/resources/code/HelloWorld.c" language="c" />
 
-          <h2>C++</h2>
-          <CodeBlock path="/resources/code/HelloWorld.cpp" language="c++" />
+            <h2>C++</h2>
+            <CodeBlock path="/resources/code/HelloWorld.cpp" language="c++" />
 
-          <h2>Python</h2>
-          <CodeBlock path="/resources/code/HelloWorld.py" language="python" />
+            <h2>Python</h2>
+            <CodeBlock path="/resources/code/HelloWorld.py" language="python" />
 
-          <h2>Ruby</h2>
-          <CodeBlock path="/resources/code/HelloWorld.rb" language="ruby" />
+            <h2>Ruby</h2>
+            <CodeBlock path="/resources/code/HelloWorld.rb" language="ruby" />
 
-          <h2>Julia</h2>
-          <CodeBlock path="/resources/code/HelloWorld.jl" language="julia" />
+            <h2>Julia</h2>
+            <CodeBlock path="/resources/code/HelloWorld.jl" language="julia" />
 
-          <h2>Scala</h2>
-          <CodeBlock path="/resources/code/HelloWorld.scala" language="scala" />
+            <h2>Scala</h2>
+            <CodeBlock path="/resources/code/HelloWorld.scala" language="scala" />
 
-          <h2>Java</h2>
-          <CodeBlock path="/resources/code/HelloWorld.java" language="java" />
+            <h2>Java</h2>
+            <CodeBlock path="/resources/code/HelloWorld.java" language="java" />
 
-          <h2>PHP</h2>
-          <CodeBlock path="/resources/code/HelloWorld.php" language="php" />
+            <h2>PHP</h2>
+            <CodeBlock path="/resources/code/HelloWorld.php" language="php" />
 
-          <h2>Haskell</h2>
-          <CodeBlock path="/resources/code/HelloWorld.hs" language="haskell" />
+            <h2>Haskell</h2>
+            <CodeBlock path="/resources/code/HelloWorld.hs" language="haskell" />
 
-          <h2>Javascript</h2>
-          <CodeBlock path="/resources/code/HelloWorld.js" language="javascript" />
+            <h2>Javascript</h2>
+            <CodeBlock path="/resources/code/HelloWorld.js" language="javascript" />
+          </Suspense>
 
         </Foundation.Grid>
       </Foundation.Grid>
