@@ -1,22 +1,14 @@
 import { ChangeEvent, Component } from 'react'
+import {
+  GameOfLifeProps,
+  GameOfLifeState,
+  CellStatus,
+  GameOfLifeGrid
+} from '../../components/GameOfLifeGrid'
+import { v4 as uuidV4 } from 'uuid'
 
 import * as Foundation from 'react-foundation'
-
-interface GameOfLifeProps {
-  gridMin?: number,
-  gridMax?: number
-}
-
-enum CellStatus {
-  Alive = 1,
-  Dead = 0
-}
-
-interface GameOfLifeState {
-  gridX: number,
-  gridY: number,
-  cells?: [[CellStatus]]
-}
+import { Pause, Shuffle, Play, Trash } from '@styled-icons/foundation'
 
 class GameOfLife extends Component<GameOfLifeProps, GameOfLifeState> {
   constructor(props: GameOfLifeProps) {
@@ -26,6 +18,7 @@ class GameOfLife extends Component<GameOfLifeProps, GameOfLifeState> {
     this.updateGrid = this.updateGrid.bind(this)
     this.updateGrid()
   }
+  
   static defaultProps = {
     gridMin: 10,
     gridMax: 200
@@ -34,11 +27,12 @@ class GameOfLife extends Component<GameOfLifeProps, GameOfLifeState> {
   state = {
     gridX: 50,
     gridY: 50,
-    cells: undefined
+    cells: undefined,
+    id: uuidV4()
   }
 
   componentDidMount() {
-    console.log("mount")
+    this.updateGrid()
   }
 
   updateGrid() {
@@ -47,14 +41,14 @@ class GameOfLife extends Component<GameOfLifeProps, GameOfLifeState> {
     console.log(this.state.gridX)
     console.log(this.state.gridY)
     
-    // const cells: [[CellStatus]] = Array(this.state.gridX).fill(Array(this.state.gridY).fill(CellStatus.Dead))
-    // const cells = [...Array(this.state.gridX)].map(_ => [Array(this.state.gridY).fill(CellStatus)])
-    // for (let i in cells) {
-    //   for (let j in cells[i]) {
-    //     cells[i][j] = CellStatus.Dead
-    //   }
-    // }
-    // this.setState({ cells })
+    const cells: Array<Array<CellStatus>> =
+      Array(this.state.gridX)
+        .fill(Array(this.state.gridY).fill(CellStatus.Dead))
+    console.log(cells)
+    this.setState({
+      cells,
+      id: uuidV4()
+    })
   }
 
   updateGridXSize(event: ChangeEvent<HTMLInputElement>) {
@@ -86,51 +80,49 @@ class GameOfLife extends Component<GameOfLifeProps, GameOfLifeState> {
         <Foundation.Grid className="grid-padding-x">
           <Foundation.Cell small={6} medium={4} large={2}>
             <input type="number" id="horizontal-grid-size"
-              data-start={gridMin} data-end={gridMax}
-              onInput={this.updateGridXSize}
+              min={gridMin} max={gridMax}
+              value={gridX}
+              onChange={this.updateGridXSize}
             />
           </Foundation.Cell>
           <Foundation.Cell small={6} medium={4} large={2}>
             <input type="number" id="vertical-grid-size"
-              data-start={gridMin} data-end={gridMax}
-              onInput={this.updateGridYSize}
+              min={gridMin} max={gridMax}
+              value={gridY}
+              onChange={this.updateGridYSize}
             />
           </Foundation.Cell>
         </Foundation.Grid>
 
-
-        <Foundation.Grid>
-          <Foundation.Cell medium={1} showFor="medium">
-          </Foundation.Cell>
-          <Foundation.Cell small={12} medium={11}>
-              <div className="slider" data-slider
-                  data-start={gridMin} data-end={gridMax} data-initial-start={gridX}>
-                <span className="slider-handle"
-                  role="slider"
-                  aria-valuenow={gridX}
-                  data-slider-handle
-                  tabIndex={1}
-                  aria-controls="horizontal-grid-size"></span>
-                <span className="slider-fill" data-slider-fill></span>
-              </div>
+        <Foundation.Grid className="grid-padding-x">
+          <Foundation.Cell small={12} medium={6} large={4}>
+            <Foundation.Menu alignment={Foundation.Alignments.CENTER} isExpanded>
+              <Foundation.MenuItem>
+                <Trash size={32} />
+              </Foundation.MenuItem>
+              <Foundation.MenuItem>
+                <Shuffle size={32} />
+              </Foundation.MenuItem>
+              <Foundation.MenuItem>
+                <Play size={32} />
+              </Foundation.MenuItem>
+              <Foundation.MenuItem>
+                <Pause size={32} />
+              </Foundation.MenuItem>
+            </Foundation.Menu>
           </Foundation.Cell>
         </Foundation.Grid>
 
         <Foundation.Grid>
-          <Foundation.Cell medium={1} showFor="medium">
-            <div className="slider vertical" data-slider
-                data-start={gridMin} data-end={gridMax} data-initial-start={gridY} data-vertical="true">
-              <span className="slider-handle"
-                role="slider"
-                aria-valuenow={gridY}
-                data-slider-handle
-                tabIndex={2}
-                aria-controls="vertical-grid-size"></span>
-              <span className="slider-fill" data-slider-fill></span>
+          <Foundation.Cell small={12}>
+            <div id="game-board">
+              <GameOfLifeGrid
+                key={this.state.id}
+                gridX={this.state.gridX}
+                gridY={this.state.gridY}
+                cells={this.state.cells}
+              />
             </div>
-          </Foundation.Cell>
-          <Foundation.Cell small={12} medium={11}>
-            <div id="game-board" />
           </Foundation.Cell>
         </Foundation.Grid>
       </Foundation.Grid>
