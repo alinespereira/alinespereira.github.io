@@ -8,6 +8,7 @@ class Destaques extends Component {
       <Foundation.Grid>
         <Foundation.Grid vertical>
           <h1>Destaques</h1>
+          <Link to="/post/jogo-da-vida">Jogo da vida</Link>
           <Link to="/post/hello-world">Hello, World!</Link>
         </Foundation.Grid>
       </Foundation.Grid>

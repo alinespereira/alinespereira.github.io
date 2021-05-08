@@ -1,0 +1,13 @@
+.square {
+    stroke: black;
+    stroke-width: 0.05;
+
+    &.alive {
+      fill: lightblue
+    }
+
+    &.dead {
+        fill: white
+    }
+}
+
